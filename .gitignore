@@ -1,0 +1,14 @@
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+.venv
+.env
+.vscode/
+.ruff_cache
+
+# Project specific
+data/
+cleanup.py
