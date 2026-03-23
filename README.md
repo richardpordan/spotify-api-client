@@ -16,7 +16,7 @@ Get and remove saved tracks from your Spotify.
 
 - Client id
 - Client secret
-- The chosen redirect uri (e.g. http://127.0.0.1:8888/callback)
+- The chosen redirect uri (e.g. `http://127.0.0.1:8888/callback`)
 
 2. Create a `.env` file in your current working directory with:
 
