@@ -70,11 +70,11 @@ class SpotifyAuthClient:
                 SPOTIFY_API_CLIENT_ID
                 SPOTIFY_API_CLIENT_SECRET
                 SPOTIFY_API_REDIRECT_URI
-                """
+                """,
             )
 
         self.credentials = base64.b64encode(
-            f"{self.client_id}:{self.client_secret}".encode()
+            f"{self.client_id}:{self.client_secret}".encode(),
         ).decode()
 
     def _generate_random_string(self, length: int = 16) -> str:
@@ -128,7 +128,7 @@ class SpotifyAuthClient:
 
         if not token_path.is_file:
             raise ExpiredOrNoRefreshTokenError(
-                "Valid refresh token not found. call .get_initial_tokens()."
+                "Valid refresh token not found. call .get_initial_tokens().",
             )
         with token_path.open(mode="r") as f:
             return f.read().strip()
@@ -156,7 +156,7 @@ class SpotifyAuthClient:
                 self.send_response(200)
                 self.end_headers()
                 self.wfile.write(
-                    b"Authorization complete. You can close this tab."
+                    b"Authorization complete. You can close this tab.",
                 )
 
         server = HTTPServer(("localhost", 8888), AuthCallbackHandler)

@@ -33,15 +33,18 @@ SPOTIFY_API_REDIRECT_URI=<your_chosen_redirect_uri>
 uv pip install "git+https://github.com/richardpordan/spotify-api-client@main"
 ```
 
-5. Example usage:
+5. Example usage.
+
+In the same directory where your `.env` file is or with the environment variables in (1) already loaded:
 
 ```py
 from spotify_api_client.spotify_client import SpotifyClient
 
-# --- Setup Client ---
+
+# Setup Client
 sp_client = SpotifyClient()
 
-# Initial setup
+# Initial auth
 sp_client.auth.get_initial_tokens()
 
 # Then to refresh the access token as required

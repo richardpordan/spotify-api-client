@@ -34,7 +34,10 @@ class SpotifyClient:
         self.debug_mode = False
 
     def _httpx_request(
-        self, type: str, base_url: str, params: dict[str, str] | None = None
+        self,
+        type: str,
+        base_url: str,
+        params: dict[str, str] | None = None,
     ) -> httpx.Response:
         """Request wrapper for all calls.
 
@@ -57,7 +60,7 @@ class SpotifyClient:
         """
         if type not in ["GET", "DELETE"]:
             raise RequestTypeNotImplementedError(
-                "type must be one of GET or DELETE"
+                "type must be one of GET or DELETE",
             )
 
         request = httpx.Request(
@@ -87,7 +90,9 @@ class SpotifyClient:
         return response
 
     def _get_request(
-        self, base_url: str, params: dict[str, str] | None = None
+        self,
+        base_url: str,
+        params: dict[str, str] | None = None,
     ) -> httpx.Response:
         """GET request wrapper.
 
@@ -107,7 +112,9 @@ class SpotifyClient:
         )
 
     def _del_request(
-        self, base_url: str, params: dict[str, str] | None = None
+        self,
+        base_url: str,
+        params: dict[str, str] | None = None,
     ) -> httpx.Response:
         """DELETE request wrapper.
 
@@ -186,7 +193,8 @@ class SpotifyClient:
         return tracks
 
     def remove_saved_tracks(
-        self, track_ids: list[str]
+        self,
+        track_ids: list[str],
     ) -> list[httpx.Response.status_code]:
         """Remove the tracks with given ids from current user library.
 

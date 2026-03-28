@@ -262,7 +262,7 @@ wheels = [
 [[package]]
 name = "spotify-api-client"
 version = "0.1.0"
-source = { virtual = "." }
+source = { editable = "." }
 dependencies = [
     { name = "httpx" },
     { name = "python-dotenv" },
@@ -276,7 +276,7 @@ dev = [
 ]
 test = [
     { name = "pandas" },
-    { name = "python-dotenv" },
+    { name = "spotify-api-client" },
 ]
 
 [package.metadata]
@@ -293,7 +293,7 @@ dev = [
 ]
 test = [
     { name = "pandas", specifier = ">=3.0.1" },
-    { name = "python-dotenv", specifier = ">=1.2.2" },
+    { name = "spotify-api-client", editable = "." },
 ]
 
 [[package]]

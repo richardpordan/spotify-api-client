@@ -2,13 +2,20 @@
 name = "spotify_api_client"
 version = "0.1.0"
 description = "Low-level spotify api client."
-readme = "https://github.com/richardpordan/spotify-api-client/README.md"
+readme = "README.md"
+authors = [
+    { name = "richardpordan", email = "105643799+richardpordan@users.noreply.github.com" }
+]
 requires-python = ">=3.13"
 
 dependencies = [
     "httpx>=0.28.1",
     "python-dotenv>=1.2.2",
 ]
+
+[build-system]
+requires = ["uv_build>=0.9.17,<0.10.0"]
+build-backend = "uv_build"
 
 [dependency-groups]
 dev = [
@@ -18,7 +25,7 @@ dev = [
 ]
 test = [
     "pandas>=3.0.1",
-    "python-dotenv>=1.2.2",
+    "spotify-api-client",
 ]
 
 [tool.ruff]
@@ -47,13 +54,25 @@ select = [
     "PYI", # stub file checks
 ]
 
-ignore = ["COM812", "N802"]
+ignore = []
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*.py" = [
+    "S101", # Asserts in tests
+    "D103",  # No docstring in tests
+]
+"src/spotify_api_client/auth_client.py" = [
+    "N802" # Allow capital letters in func name
+]
 
 [tool.ruff.format]
 quote-style = "double"
 indent-style = "space"
 
-[lint.ruff.per-file-ignores]
-"tests/*.py" = [
-    "S101",  # allow asserts in tests
+[tool.uv.workspace]
+members = [
+    ".",
 ]
+
+[tool.uv.sources]
+spotify-api-client = { workspace = true, editable = true }
